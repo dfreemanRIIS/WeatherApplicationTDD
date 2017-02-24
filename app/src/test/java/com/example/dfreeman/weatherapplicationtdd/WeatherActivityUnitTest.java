@@ -2,7 +2,6 @@ package com.example.dfreeman.weatherapplicationtdd;
 
 import android.widget.Button;
 
-import com.example.dfreeman.weatherapplicationtdd.View.LocationActivity;
 import com.example.dfreeman.weatherapplicationtdd.View.WeatherActivity;
 
 import junit.framework.Assert;
@@ -28,12 +27,6 @@ public class WeatherActivityUnitTest {
     public void setUp() {
         weatherActivity = Robolectric.buildActivity(WeatherActivity.class).create().get();
         changeLocatinButton = (Button) weatherActivity.findViewById(R.id.enterLocationGoButton);
-    }
-
-    @Test
-    public void clickTest() {
-        changeLocatinButton.callOnClick();
-        Assert.assertEquals("0", weatherActivity.controller.getLocation());
     }
 
     @Test

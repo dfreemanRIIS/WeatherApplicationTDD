@@ -15,7 +15,7 @@
         android:id="@+id/enterLocationEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Enter Location" />
+        android:hint="Enter Zip Code" />
 
     <Button
         android:id="@+id/enterLocationGoButton"

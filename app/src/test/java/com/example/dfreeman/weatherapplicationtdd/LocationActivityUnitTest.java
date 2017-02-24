@@ -34,9 +34,9 @@ public class LocationActivityUnitTest {
 
     @Test
     public void clickTest() {
-        editText.setText("badInput");
+        editText.setText("bad input example");
         goButton.callOnClick();
-        Assert.assertEquals(editText.getText(), locationActivity.controller.getLocation());
+        Assert.assertEquals(null, locationActivity.controller.getLocation());
         editText.setText("48315");
         goButton.callOnClick();
         Assert.assertNotSame(editText.getText(), locationActivity.controller.getLocation());

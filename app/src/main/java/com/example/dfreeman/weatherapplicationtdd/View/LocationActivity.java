@@ -16,26 +16,24 @@ public class LocationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        controller = new Controller();
-        String location = controller.getLocation();
-        if(location.equals("testLocation")) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_location);
-        } else {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_location);
+        controller = new Controller(this);
+        if(controller.isValid(controller.getLocation())) {
             Intent intent = new Intent(LocationActivity.this, WeatherActivity.class);
             startActivity(intent);
         }
     }
 
     public void onClickGo(View v) {
-        EditText editText = (EditText)findViewById(R.id.enterLocationEditText);
+        EditText editText = (EditText) findViewById(R.id.enterLocationEditText);
         String enteredText = editText.getText().toString();
-        if(controller.isValid(enteredText)) {
+        if (controller.isValid(enteredText)) {
             controller.setLocation(enteredText);
             Intent intent = new Intent(LocationActivity.this, WeatherActivity.class);
             startActivity(intent);
         } else {
-            Toast.makeText(this, "Not a valid location", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Not a valid Zip Code", Toast.LENGTH_SHORT).show();
         }
     }
 }
