@@ -1,7 +1,9 @@
-package com.example.dfreeman.weatherapplicationtdd;
+package com.example.dfreeman.weatherapplicationtdd.View;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.dfreeman.weatherapplicationtdd.R;
 
 public class LocationActivity extends AppCompatActivity {
 
