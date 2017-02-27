@@ -1,5 +1,6 @@
 package com.example.dfreeman.weatherapplicationtdd.View;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import com.example.dfreeman.weatherapplicationtdd.R;
 public class LocationActivity extends AppCompatActivity {
 
     public Controller controller;
+    public Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class LocationActivity extends AppCompatActivity {
             Intent intent = new Intent(LocationActivity.this, WeatherActivity.class);
             startActivity(intent);
         }
+        context = this;
     }
 
     public void onClickGo(View v) {
@@ -35,5 +38,9 @@ public class LocationActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Not a valid Zip Code", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public Context getContext() {
+        return context;
     }
 }

@@ -32,11 +32,11 @@ public class WeatherActivityUnitTest {
     @Test
     public void testLocation() {
         String test;
-        weatherActivity.controller.setLocation("0");
-        test = weatherActivity.controller.getLocation();
+        weatherActivity.controller.setLocation(weatherActivity.getContext(), "0");
+        test = weatherActivity.controller.getLocation(weatherActivity.getContext());
         Assert.assertEquals("0", test);
-        weatherActivity.controller.setLocation("48315");
-        test = weatherActivity.controller.getLocation();
+        weatherActivity.controller.setLocation(weatherActivity.getContext(), "48315");
+        test = weatherActivity.controller.getLocation(weatherActivity.getContext());
         Assert.assertEquals("48315", test);
     }
 

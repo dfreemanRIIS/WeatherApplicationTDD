@@ -1,5 +1,6 @@
 package com.example.dfreeman.weatherapplicationtdd.View;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -18,6 +19,7 @@ public class WeatherActivity extends AppCompatActivity {
 
     public Controller controller;
     private PagerAdapter mPagerAdapter;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class WeatherActivity extends AppCompatActivity {
         TextView textView = (TextView)findViewById(R.id.currentLocation);
         textView.setText(controller.getLocation(this));
         this.initialisePaging();
+        context = this;
 
     }
 
@@ -43,5 +46,9 @@ public class WeatherActivity extends AppCompatActivity {
         this.mPagerAdapter  = new PagerAdapter(super.getSupportFragmentManager(), fragments);
         ViewPager pager = (ViewPager)super.findViewById(R.id.viewpager);
         pager.setAdapter(this.mPagerAdapter);
+    }
+
+    public Context getContext() {
+        return context;
     }
 }

@@ -26,17 +26,17 @@ public class ControllerUnitTest {
     @Before
     public void setUp() {
         locationActivity = Robolectric.buildActivity(LocationActivity.class).create().get();
-        controller = new Controller(locationActivity);
+        controller = new Controller();
     }
 
     @Test
     public void testLocation() {
         String test;
-        controller.setLocation("0");
-        test = controller.getLocation();
+        controller.setLocation(locationActivity, "0");
+        test = controller.getLocation(locationActivity);
         assertEquals("0", test);
-        controller.setLocation("48315");
-        test = controller.getLocation();
+        controller.setLocation(locationActivity, "48315");
+        test = controller.getLocation(locationActivity);
         assertEquals("48315", test);
     }
 

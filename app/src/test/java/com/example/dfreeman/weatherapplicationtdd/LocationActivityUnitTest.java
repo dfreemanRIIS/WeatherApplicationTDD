@@ -36,20 +36,20 @@ public class LocationActivityUnitTest {
     public void clickTest() {
         editText.setText("bad input example");
         goButton.callOnClick();
-        Assert.assertEquals(null, locationActivity.controller.getLocation());
+        Assert.assertEquals(null, locationActivity.controller.getLocation(locationActivity.getContext()));
         editText.setText("48315");
         goButton.callOnClick();
-        Assert.assertNotSame(editText.getText(), locationActivity.controller.getLocation());
+        Assert.assertNotSame(editText.getText(), locationActivity.controller.getLocation(locationActivity.getContext()));
     }
 
     @Test
     public void testLocation() {
         String test;
-        locationActivity.controller.setLocation("0");
-        test = locationActivity.controller.getLocation();
+        locationActivity.controller.setLocation(locationActivity.getContext(), "0");
+        test = locationActivity.controller.getLocation(locationActivity.getContext());
         Assert.assertEquals("0", test);
-        locationActivity.controller.setLocation("48315");
-        test = locationActivity.controller.getLocation();
+        locationActivity.controller.setLocation(locationActivity.getContext(),"48315");
+        test = locationActivity.controller.getLocation(locationActivity.getContext());
         Assert.assertEquals("48315", test);
     }
 
