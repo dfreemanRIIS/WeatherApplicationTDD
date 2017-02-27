@@ -5,6 +5,7 @@ import com.example.dfreeman.weatherapplicationtdd.View.LocationActivity;
 
 import junit.framework.Assert;
 
+import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -47,4 +48,9 @@ public class ControllerUnitTest {
         assertEquals(false, controller.isValid("abc"));
     }
 
+    @Test
+    public void testGetTemp() throws JSONException {
+        assertEquals(controller.getTemp("45678", 1, 1), "60");
+        assertEquals(controller.getTemp("12345", 2, 2), "70");
+    }
 }
