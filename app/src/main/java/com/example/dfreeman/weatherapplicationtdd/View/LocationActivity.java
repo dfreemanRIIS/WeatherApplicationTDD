@@ -18,8 +18,8 @@ public class LocationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
-        controller = new Controller(this);
-        if(controller.isValid(controller.getLocation())) {
+        controller = new Controller();
+        if(controller.isValid(controller.getLocation(this))) {
             Intent intent = new Intent(LocationActivity.this, WeatherActivity.class);
             startActivity(intent);
         }
@@ -29,7 +29,7 @@ public class LocationActivity extends AppCompatActivity {
         EditText editText = (EditText) findViewById(R.id.enterLocationEditText);
         String enteredText = editText.getText().toString();
         if (controller.isValid(enteredText)) {
-            controller.setLocation(enteredText);
+            controller.setLocation(this, enteredText);
             Intent intent = new Intent(LocationActivity.this, WeatherActivity.class);
             startActivity(intent);
         } else {

@@ -21,17 +21,17 @@ public class WeatherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        controller = new Controller(this);
+        controller = new Controller();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
         TextView textView = (TextView)findViewById(R.id.currentLocation);
-        textView.setText(controller.getLocation());
+        textView.setText(controller.getLocation(this));
         this.initialisePaging();
 
     }
 
     public void onClickChangeLocation(View v) {
-        controller.setLocation("noLocation");
+        controller.setLocation(this, "noLocation");
         Intent intent = new Intent(WeatherActivity.this, LocationActivity.class);
         startActivity(intent);
     }
