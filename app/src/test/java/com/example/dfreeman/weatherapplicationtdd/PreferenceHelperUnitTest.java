@@ -3,8 +3,6 @@ package com.example.dfreeman.weatherapplicationtdd;
 import com.example.dfreeman.weatherapplicationtdd.Model.PreferenceHelper;
 import com.example.dfreeman.weatherapplicationtdd.View.LocationActivity;
 
-import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +11,6 @@ import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21, manifest = "src/main/AndroidManifest.xml")

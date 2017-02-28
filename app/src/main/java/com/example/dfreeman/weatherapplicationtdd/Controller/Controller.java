@@ -8,7 +8,6 @@ import com.example.dfreeman.weatherapplicationtdd.Model.PreferenceHelper;
 import com.example.dfreeman.weatherapplicationtdd.Model.Weather;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 public class Controller {
 
