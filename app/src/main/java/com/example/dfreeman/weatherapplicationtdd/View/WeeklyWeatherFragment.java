@@ -17,7 +17,7 @@ import com.example.dfreeman.weatherapplicationtdd.R;
 
 import org.json.JSONException;
 
-public class DailyWeatherFragment extends Fragment {
+public class WeeklyWeatherFragment extends Fragment {
 
     private TextView cityText;
     private TextView condDescr;
@@ -34,15 +34,15 @@ public class DailyWeatherFragment extends Fragment {
             return null;
         }
         super.onCreate(savedInstanceState);
-        View v = inflater.inflate(R.layout.fragment_daily_weather, container, false);
-        cityText = (TextView) v.findViewById(R.id.cityText);
-        condDescr = (TextView) v.findViewById(R.id.condDescr);
-        temp = (TextView) v.findViewById(R.id.temp);
-        hum = (TextView) v.findViewById(R.id.hum);
-        press = (TextView) v.findViewById(R.id.press);
-        windSpeed = (TextView) v.findViewById(R.id.windSpeed);
-        windDeg = (TextView) v.findViewById(R.id.windDeg);
-        imgView = (ImageView) v.findViewById(R.id.condIcon);
+        View v = inflater.inflate(R.layout.fragment_weekly_weather, container, false);
+        cityText = (TextView) v.findViewById(R.id.cityTextWeekly);
+        condDescr = (TextView) v.findViewById(R.id.condDescrWeekly);
+        temp = (TextView) v.findViewById(R.id.tempWeekly);
+        hum = (TextView) v.findViewById(R.id.humWeekly);
+        press = (TextView) v.findViewById(R.id.pressWeekly);
+        windSpeed = (TextView) v.findViewById(R.id.windSpeedWeekly);
+        windDeg = (TextView) v.findViewById(R.id.windDegWeekly);
+        imgView = (ImageView) v.findViewById(R.id.condIconWeekly);
         WeatherActivity weatherActivity = (WeatherActivity) getActivity();
         controller = weatherActivity.controller;
         String city = controller.getCachedLocation();

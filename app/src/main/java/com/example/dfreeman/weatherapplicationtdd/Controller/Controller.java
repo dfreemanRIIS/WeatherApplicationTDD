@@ -48,4 +48,17 @@ public class Controller {
         return JSONParser.getWeather(data);
     }
 
+    public String getWeeklyData(String params) {
+        String data = ((new ApiHelper()).getWeeklyWeatherData(params));
+        return data;
+    }
+
+    public Weather[] getWeeklyWeather(String data) throws JSONException {
+        Weather[] weekWeather = new Weather[5];
+        for (int i = 0; i <5; i++) {
+            weekWeather[i] = JSONParser.getWeather(data);
+        }
+        return weekWeather;
+    }
+
 }

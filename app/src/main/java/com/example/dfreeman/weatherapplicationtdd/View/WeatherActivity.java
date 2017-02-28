@@ -43,7 +43,7 @@ public class WeatherActivity extends AppCompatActivity {
     private void initialisePaging() {
         List<Fragment> fragments = new Vector<Fragment>();
         fragments.add(Fragment.instantiate(this, DailyWeatherFragment.class.getName()));
-        fragments.add(Fragment.instantiate(this, DailyWeatherFragment.class.getName()));
+        fragments.add(Fragment.instantiate(this, WeeklyWeatherFragment.class.getName()));
         this.mPagerAdapter  = new PagerAdapter(super.getSupportFragmentManager(), fragments);
         ViewPager pager = (ViewPager)super.findViewById(R.id.viewpager);
         pager.setAdapter(this.mPagerAdapter);

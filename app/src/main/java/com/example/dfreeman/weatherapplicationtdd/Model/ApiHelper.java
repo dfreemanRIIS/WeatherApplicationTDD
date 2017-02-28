@@ -10,6 +10,11 @@ import java.net.URL;
 public class ApiHelper {
 
     private static String BASE_URL = "http://api.openweathermap.org/data/2.5/weather?zip=";
+    private static String BASE_FORECAST_URL = "http://api.openweathermap.org/data/2.5/forecast?zip=";
+
+    public String getWeeklyWeatherData(String location) {
+        return "test";
+    }
 
     public String getWeatherData(String location) {
         HttpURLConnection con = null ;
