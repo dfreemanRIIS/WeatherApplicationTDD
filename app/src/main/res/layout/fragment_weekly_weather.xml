@@ -11,70 +11,94 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.dfreeman.weatherapplicationtdd.View.DailyWeatherFragment">
 
-
     <TextView
         android:id="@+id/cityTextWeekly"
         style="?android:attr/textAppearanceMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <ImageView
-        android:id="@+id/condIconWeekly"
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/cityTextFirstDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/condDescrWeekly"
+        android:id="@+id/condDescrFirstDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/tempWeekly"
+        android:id="@+id/tempFirstDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp" />
 
     <TextView
-        android:id="@+id/pressLabWeekly"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pressure"
-        android:layout_marginTop="15dp" />
-
-    <TextView
-        android:id="@+id/pressWeekly"
+        android:layout_marginTop="10dp"
+        android:id="@+id/cityTextSecondDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/humLabWeekly"
+        android:id="@+id/condDescrSecondDay"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Humidity" />
+        android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/humWeekly"
+        android:id="@+id/tempSecondDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"/>
+        android:layout_marginLeft="12dp" />
 
     <TextView
-        android:id="@+id/windLabWeekly"
+        android:layout_marginTop="10dp"
+        android:id="@+id/cityTextThirdDay"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Wind" />
+        android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/windSpeedWeekly"
+        android:id="@+id/condDescrThirdDay"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp" />
+        android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/windDegWeekly"
+        android:id="@+id/tempThirdDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"/>
+        android:layout_marginLeft="12dp" />
 
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/cityTextFourthDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
+    <TextView
+        android:id="@+id/condDescrFourthDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tempFourthDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/cityTextFifthDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/condDescrFifthDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tempFifthDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp" />
 </LinearLayout>
