@@ -5,12 +5,14 @@ import android.content.Context;
 import com.example.dfreeman.weatherapplicationtdd.Model.ApiHelper;
 import com.example.dfreeman.weatherapplicationtdd.Model.JSONParser;
 import com.example.dfreeman.weatherapplicationtdd.Model.PreferenceHelper;
+import com.example.dfreeman.weatherapplicationtdd.Model.Weather;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Controller {
 
+    private String cachedLocation = "48315";
     private PreferenceHelper preferenceHelper;
 
     public Controller() {
@@ -29,11 +31,21 @@ public class Controller {
         return preferenceHelper.isValid(location);
     }
 
-    public String getTemp(String location, int month, int day) throws JSONException {
-        ApiHelper apiHelper = new ApiHelper();
-        JSONObject jo = apiHelper.getWeather();
-        JSONParser jsonparser = new JSONParser();
-        return jsonparser.todaysWeather(location, month, day, jo);
+    public String getCachedLocation() {
+        return cachedLocation;
+    }
+
+    public void setCachedLocation(String cachedLocation) {
+        this.cachedLocation = cachedLocation;
+    }
+
+    public String getData(String params) {
+        String data = ((new ApiHelper()).getWeatherData(params));
+        return data;
+    }
+
+    public Weather getWeather(String data) throws JSONException {
+        return JSONParser.getWeather(data);
     }
 
 }

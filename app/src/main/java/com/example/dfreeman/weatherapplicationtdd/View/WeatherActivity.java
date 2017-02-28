@@ -28,6 +28,7 @@ public class WeatherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
         TextView textView = (TextView)findViewById(R.id.currentLocation);
         textView.setText(controller.getLocation(this));
+        controller.setCachedLocation(controller.getLocation(this));
         this.initialisePaging();
         context = this;
 
