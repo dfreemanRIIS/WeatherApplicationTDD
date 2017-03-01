@@ -52,12 +52,36 @@ public class JSONParser {
         JSONObject cObj = getObject("clouds", jObj);
         weather.clouds.setPerc(getInt("all", cObj));
 
-        // We download the icon to show
-
-
         return weather;
     }
 
+    public static Weather[] getWeeklyWeather(String data) throws JSONException  {
+        Weather[] weather = new Weather[5];
+        JSONObject jsonObj = new JSONObject(data);
+        JSONArray list=jsonObj.getJSONArray("list");
+
+        for (int i = 0; i <5; i++) {
+            weather[i] = new Weather();
+            JSONObject item = list.getJSONObject(i);
+
+            JSONObject temp = item.getJSONObject("temp");
+            String temp2 = temp.getString("max");
+            Float temp3 = Float.parseFloat(temp2);
+            weather[i].temperature.setTemp(temp3);
+
+            JSONArray currentCondition = item.getJSONArray("weather");
+            JSONObject jObj = currentCondition.getJSONObject(0);
+            String currentCondition2 = jObj.getString("main");
+            weather[i].currentCondition.setCondition(currentCondition2);
+
+            JSONArray desc = item.getJSONArray("weather");
+            JSONObject jObj2 = desc.getJSONObject(0);
+            String desc2 = jObj2.getString("description");
+            weather[i].currentCondition.setDescr(desc2);
+        }
+
+        return weather;
+    }
 
     private static JSONObject getObject(String tagName, JSONObject jObj)  throws JSONException {
         JSONObject subObj = jObj.getJSONObject(tagName);

@@ -29,4 +29,15 @@ public class JSONParserUnitTest {
         assertEquals(2.59, weather.wind.getSpeed(), DELTA);
         assertEquals(130.0, weather.wind.getDeg(), DELTA);
     }
+
+    @Test
+    public void testGetWeeklyWeather() throws JSONException {
+        String data = "{\"city\":{\"id\":5009586,\"name\":\"Shelby\",\"coord\":{\"lon\":-83.033,\"lat\":42.6709},\"country\":\"US\",\"population\":74099},\"cod\":\"200\",\"message\":10.7832584,\"cnt\":7,\"list\":[{\"dt\":1488387600,\"temp\":{\"day\":285.44,\"min\":270.78,\"max\":285.44,\"night\":270.78,\"eve\":277.01,\"morn\":284.06},\"pressure\":984.36,\"humidity\":79,\"weather\":[{\"id\":600,\"main\":\"Snow\",\"description\":\"light snow\",\"icon\":\"13d\"}],\"speed\":6.81,\"deg\":222,\"clouds\":92,\"rain\":0.69,\"snow\":0.26},{\"dt\":1488474000,\"temp\":{\"day\":272.24,\"min\":267.73,\"max\":272.31,\"night\":269.49,\"eve\":271.22,\"morn\":267.73},\"pressure\":1008.68,\"humidity\":93,\"weather\":[{\"id\":600,\"main\":\"Snow\",\"description\":\"light snow\",\"icon\":\"13d\"}],\"speed\":4.81,\"deg\":302,\"clouds\":68,\"snow\":0.56},{\"dt\":1488560400,\"temp\":{\"day\":270.63,\"min\":264.25,\"max\":270.83,\"night\":264.25,\"eve\":269.14,\"morn\":265.01},\"pressure\":1018.77,\"humidity\":90,\"weather\":[{\"id\":600,\"main\":\"Snow\",\"description\":\"light snow\",\"icon\":\"13d\"}],\"speed\":5.66,\"deg\":319,\"clouds\":44,\"snow\":0.06},{\"dt\":1488646800,\"temp\":{\"day\":275.49,\"min\":266.05,\"max\":275.49,\"night\":271.56,\"eve\":274.35,\"morn\":266.05},\"pressure\":1016.97,\"humidity\":0,\"weather\":[{\"id\":800,\"main\":\"Clear\",\"description\":\"sky is clear\",\"icon\":\"01d\"}],\"speed\":4.09,\"deg\":133,\"clouds\":42,\"snow\":0.02},{\"dt\":1488733200,\"temp\":{\"day\":283.3,\"min\":272.51,\"max\":283.3,\"night\":279.1,\"eve\":281.42,\"morn\":272.51},\"pressure\":1008.92,\"humidity\":0,\"weather\":[{\"id\":800,\"main\":\"Clear\",\"description\":\"sky is clear\",\"icon\":\"01d\"}],\"speed\":4.15,\"deg\":189,\"clouds\":21},{\"dt\":1488819600,\"temp\":{\"day\":282.41,\"min\":273,\"max\":282.41,\"night\":273,\"eve\":279.68,\"morn\":280.23},\"pressure\":996.88,\"humidity\":0,\"weather\":[{\"id\":800,\"main\":\"Clear\",\"description\":\"sky is clear\",\"icon\":\"01d\"}],\"speed\":5.58,\"deg\":231,\"clouds\":87,\"rain\":2.11,\"snow\":0.02},{\"dt\":1488906000,\"temp\":{\"day\":274.32,\"min\":268.82,\"max\":274.32,\"night\":272.09,\"eve\":273.93,\"morn\":268.82},\"pressure\":1006.33,\"humidity\":0,\"weather\":[{\"id\":601,\"main\":\"Snow\",\"description\":\"snow\",\"icon\":\"13d\"}],\"speed\":1.5,\"deg\":321,\"clouds\":94,\"snow\":1.81}]}";
+        Weather[] weather = JSONParser.getWeeklyWeather(data);
+        assertEquals(12, Math.round((weather[0].temperature.getTemp() - 273.15)));
+        assertEquals(weather[1].currentCondition.getCondition(), "Snow");
+        assertEquals(weather[2].currentCondition.getDescr(), "light snow");
+        assertEquals(weather[3].currentCondition.getCondition(), "Clear");
+        assertEquals(10, Math.round((weather[4].temperature.getTemp() - 273.15)));
+    }
 }

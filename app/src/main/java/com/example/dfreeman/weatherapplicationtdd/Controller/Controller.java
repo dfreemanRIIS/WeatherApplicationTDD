@@ -53,11 +53,7 @@ public class Controller {
     }
 
     public Weather[] getWeeklyWeather(String data) throws JSONException {
-        Weather[] weekWeather = new Weather[5];
-        for (int i = 0; i <5; i++) {
-            weekWeather[i] = JSONParser.getWeather(data);
-        }
-        return weekWeather;
+        return JSONParser.getWeeklyWeather(data);
     }
 
 }
