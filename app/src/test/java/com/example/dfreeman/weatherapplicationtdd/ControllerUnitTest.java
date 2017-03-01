@@ -89,4 +89,12 @@ public class ControllerUnitTest {
         assertEquals(weather[3].currentCondition.getCondition(), "Clear");
         assertEquals(10, Math.round((weather[4].temperature.getTemp() - 273.15)));
     }
+
+    @Test
+    public void testIsWeatherBad() {
+        String test1 = "Clear";
+        String test2 = "Snow";
+        assertEquals(controller.isWeatherBad(test1), false);
+        assertEquals(controller.isWeatherBad(test2), true);
+    }
 }

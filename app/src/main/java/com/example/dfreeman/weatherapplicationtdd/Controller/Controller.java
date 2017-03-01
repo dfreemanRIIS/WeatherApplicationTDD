@@ -6,6 +6,7 @@ import com.example.dfreeman.weatherapplicationtdd.Model.ApiHelper;
 import com.example.dfreeman.weatherapplicationtdd.Model.JSONParser;
 import com.example.dfreeman.weatherapplicationtdd.Model.PreferenceHelper;
 import com.example.dfreeman.weatherapplicationtdd.Model.Weather;
+import com.example.dfreeman.weatherapplicationtdd.Model.WeatherConditionCheck;
 
 import org.json.JSONException;
 
@@ -56,4 +57,7 @@ public class Controller {
         return JSONParser.getWeeklyWeather(data);
     }
 
+    public boolean isWeatherBad(String weather) {
+        return new WeatherConditionCheck().isWeatherBad(weather);
+    }
 }
