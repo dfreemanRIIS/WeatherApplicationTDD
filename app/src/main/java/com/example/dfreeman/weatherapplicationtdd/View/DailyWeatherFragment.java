@@ -1,14 +1,11 @@
 package com.example.dfreeman.weatherapplicationtdd.View;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dfreeman.weatherapplicationtdd.Controller.Controller;
@@ -26,7 +23,6 @@ public class DailyWeatherFragment extends Fragment {
     private TextView windSpeed;
     private TextView windDeg;
     private TextView hum;
-    private ImageView imgView;
     private Controller controller;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,12 +38,11 @@ public class DailyWeatherFragment extends Fragment {
         press = (TextView) v.findViewById(R.id.press);
         windSpeed = (TextView) v.findViewById(R.id.windSpeed);
         windDeg = (TextView) v.findViewById(R.id.windDeg);
-        imgView = (ImageView) v.findViewById(R.id.condIcon);
         WeatherActivity weatherActivity = (WeatherActivity) getActivity();
         controller = weatherActivity.controller;
         String city = controller.getCachedLocation();
         JSONWeatherTask task = new JSONWeatherTask();
-        task.execute(new String[]{city});
+        task.execute(city);
 
         return v;
     }
@@ -71,11 +66,6 @@ public class DailyWeatherFragment extends Fragment {
         @Override
         protected void onPostExecute(Weather weather) {
             super.onPostExecute(weather);
-
-            if (weather.iconData != null && weather.iconData.length > 0) {
-                Bitmap img = BitmapFactory.decodeByteArray(weather.iconData, 0, weather.iconData.length);
-                imgView.setImageBitmap(img);
-            }
 
             cityText.setText(weather.location.getCity() + "," + weather.location.getCountry());
             condDescr.setText(weather.currentCondition.getCondition() + "(" + weather.currentCondition.getDescr() + ")");

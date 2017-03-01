@@ -1,7 +1,5 @@
 package com.example.dfreeman.weatherapplicationtdd.View;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -34,7 +32,6 @@ public class WeeklyWeatherFragment extends Fragment {
     private TextView condDescrFifthDay;
     private TextView tempFifthDay;
     private TextView cityTextWeekly;
-
     private Controller controller;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,7 +60,7 @@ public class WeeklyWeatherFragment extends Fragment {
         controller = weatherActivity.controller;
         String city = controller.getCachedLocation();
         JSONWeatherTask task = new JSONWeatherTask();
-        task.execute(new String[]{city});
+        task.execute(city);
 
         return v;
     }
@@ -74,8 +71,6 @@ public class WeeklyWeatherFragment extends Fragment {
         protected Weather[] doInBackground(String... params) {
             Weather[] weather = new Weather[5];
             String data = controller.getWeeklyData(params[0]);
-            //String data = controller.getData(params[0]);
-
 
             try {
                 weather = controller.getWeeklyWeather(data);
@@ -83,7 +78,6 @@ public class WeeklyWeatherFragment extends Fragment {
                 e.printStackTrace();
             }
             return weather;
-
         }
 
         @Override
@@ -91,19 +85,19 @@ public class WeeklyWeatherFragment extends Fragment {
             super.onPostExecute(weather);
 
             cityTextWeekly.setText(controller.getCachedLocation());
-            cityTextFirstDay.setText("Today");
+            cityTextFirstDay.setText(R.string.today);
             condDescrFirstDay.setText(weather[0].currentCondition.getCondition() + "(" + weather[0].currentCondition.getDescr() + ")");
             tempFirstDay.setText("" + Math.round((weather[0].temperature.getTemp() - 273.15)) + "�C");
-            cityTextSecondDay.setText("Tommarow");
+            cityTextSecondDay.setText(R.string.tomorrow);
             condDescrSecondDay.setText(weather[1].currentCondition.getCondition() + "(" + weather[1].currentCondition.getDescr() + ")");
             tempSecondDay.setText("" + Math.round((weather[1].temperature.getTemp() - 273.15)) + "�C");
-            cityTextThirdDay.setText("3 day");
+            cityTextThirdDay.setText(R.string.threeDay);
             condDescrThirdDay.setText(weather[2].currentCondition.getCondition() + "(" + weather[2].currentCondition.getDescr() + ")");
             tempThirdDay.setText("" + Math.round((weather[2].temperature.getTemp() - 273.15)) + "�C");
-            cityTextFourthDay.setText("4 day");
+            cityTextFourthDay.setText(R.string.fourDay);
             condDescrFourthDay.setText(weather[3].currentCondition.getCondition() + "(" + weather[3].currentCondition.getDescr() + ")");
             tempFourthDay.setText("" + Math.round((weather[3].temperature.getTemp() - 273.15)) + "�C");
-            cityTextFifthDay.setText("5 day");
+            cityTextFifthDay.setText(R.string.fiveDay);
             condDescrFifthDay.setText(weather[4].currentCondition.getCondition() + "(" + weather[4].currentCondition.getDescr() + ")");
             tempFifthDay.setText("" + Math.round((weather[4].temperature.getTemp() - 273.15)) + "�C");
         }

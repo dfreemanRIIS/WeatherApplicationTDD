@@ -43,5 +43,4 @@ public class PreferenceHelperUnitTest {
         assertEquals(false, preferenceHelper.isValid("321"));
         assertEquals(false, preferenceHelper.isValid("abc"));
     }
-
 }

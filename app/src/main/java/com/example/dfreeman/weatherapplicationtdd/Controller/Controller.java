@@ -13,7 +13,7 @@ import org.json.JSONException;
 public class Controller {
 
     private String cachedLocation = "48315";
-    private PreferenceHelper preferenceHelper;
+    private final PreferenceHelper preferenceHelper;
 
     public Controller() {
         preferenceHelper = new PreferenceHelper();
@@ -40,8 +40,7 @@ public class Controller {
     }
 
     public String getData(String params) {
-        String data = ((new ApiHelper()).getWeatherData(params));
-        return data;
+        return ((new ApiHelper()).getWeatherData(params));
     }
 
     public Weather getWeather(String data) throws JSONException {
@@ -49,8 +48,7 @@ public class Controller {
     }
 
     public String getWeeklyData(String params) {
-        String data = ((new ApiHelper()).getWeeklyWeatherData(params));
-        return data;
+        return ((new ApiHelper()).getWeeklyWeatherData(params));
     }
 
     public Weather[] getWeeklyWeather(String data) throws JSONException {

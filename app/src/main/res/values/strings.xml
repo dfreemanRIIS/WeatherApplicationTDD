@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">WeatherApplicationTDD</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="threeDay">Three Day</string>
+    <string name="fourDay">Four Day</string>
+    <string name="fiveDay">Five Day</string>
+
+    <string name="wind">Wind</string>
+    <string name="humidity">Humidity</string>
+    <string name="pressure">Pressure</string>
+    <string name="go">Go</string>
+    <string name="changeLocation">Change Location</string>
+    <string name="enterZipCode">Enter Zip Code</string>
+
+    <string name="badInputExample">Bad Input Example</string>
+    <string name="testZip">48315</string>
+
 </resources>

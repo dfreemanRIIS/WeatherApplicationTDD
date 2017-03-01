@@ -32,7 +32,7 @@
         android:id="@+id/tempFirstDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp" />
+        android:layout_marginStart="12dp" />
 
     <TextView
         android:layout_marginTop="10dp"
@@ -49,7 +49,7 @@
         android:id="@+id/tempSecondDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp" />
+        android:layout_marginStart="12dp" />
 
     <TextView
         android:layout_marginTop="10dp"
@@ -66,7 +66,7 @@
         android:id="@+id/tempThirdDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp" />
+        android:layout_marginStart="12dp" />
 
     <TextView
         android:layout_marginTop="10dp"
@@ -83,7 +83,7 @@
         android:id="@+id/tempFourthDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp" />
+        android:layout_marginStart="12dp" />
 
     <TextView
         android:layout_marginTop="10dp"
@@ -100,5 +100,5 @@
         android:id="@+id/tempFifthDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp" />
+        android:layout_marginStart="12dp" />
 </LinearLayout>

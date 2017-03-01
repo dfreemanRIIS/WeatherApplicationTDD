@@ -19,9 +19,9 @@
         android:id="@+id/changeLocationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change Location"
+        android:text="@string/changeLocation"
         android:onClick="onClickChangeLocation"
-        android:layout_toRightOf="@+id/currentLocation"/>
+        android:layout_toEndOf="@+id/currentLocation"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"

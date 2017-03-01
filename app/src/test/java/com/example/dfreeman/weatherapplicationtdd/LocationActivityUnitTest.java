@@ -31,10 +31,10 @@ public class LocationActivityUnitTest {
 
     @Test
     public void clickTest() {
-        editText.setText("bad input example");
+        editText.setText(R.string.badInputExample);
         goButton.callOnClick();
         Assert.assertEquals(null, locationActivity.controller.getLocation(locationActivity.getContext()));
-        editText.setText("48315");
+        editText.setText(R.string.testZip);
         goButton.callOnClick();
         Assert.assertNotSame(editText.getText(), locationActivity.controller.getLocation(locationActivity.getContext()));
     }
@@ -56,5 +56,4 @@ public class LocationActivityUnitTest {
         Assert.assertEquals(false, locationActivity.controller.isValid("321"));
         Assert.assertEquals(false, locationActivity.controller.isValid("abc"));
     }
-
 }

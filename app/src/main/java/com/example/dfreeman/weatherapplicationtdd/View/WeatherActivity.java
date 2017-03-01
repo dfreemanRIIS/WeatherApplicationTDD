@@ -21,7 +21,6 @@ import java.util.Vector;
 public class WeatherActivity extends AppCompatActivity {
 
     public Controller controller;
-    private PagerAdapter mPagerAdapter;
     private Context context;
 
     @Override
@@ -34,21 +33,7 @@ public class WeatherActivity extends AppCompatActivity {
         controller.setCachedLocation(controller.getLocation(this));
         this.initialisePaging();
         context = this;
-
-        String longText = "Warning: Bad weather in your selected area!";
-        Intent intent = new Intent(this, WeatherActivity.class);
-        PendingIntent pIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
-        Notification n  = new Notification.Builder(this)
-                .setContentTitle("BAD WEATHER WARNING!!")
-                .setContentText("Subject")
-                .setSmallIcon(R.drawable.icon)
-                .setContentIntent(pIntent)
-                .setAutoCancel(true)
-                .setStyle(new Notification.BigTextStyle().bigText(longText))
-                .addAction(R.drawable.icon, "More", pIntent).build();
-        NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-        notificationManager.notify(0, n);
-
+        showBadWeatherNotification();
     }
 
     public void onClickChangeLocation(View v) {
@@ -58,15 +43,33 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     private void initialisePaging() {
-        List<Fragment> fragments = new Vector<Fragment>();
+        List<Fragment> fragments = new Vector<>();
         fragments.add(Fragment.instantiate(this, DailyWeatherFragment.class.getName()));
         fragments.add(Fragment.instantiate(this, WeeklyWeatherFragment.class.getName()));
-        this.mPagerAdapter  = new PagerAdapter(super.getSupportFragmentManager(), fragments);
+        PagerAdapter mPagerAdapter  = new PagerAdapter(super.getSupportFragmentManager(), fragments);
         ViewPager pager = (ViewPager)super.findViewById(R.id.viewpager);
-        pager.setAdapter(this.mPagerAdapter);
+        pager.setAdapter(mPagerAdapter);
     }
 
     public Context getContext() {
         return context;
+    }
+
+    private void showBadWeatherNotification() {
+        if(controller.isWeatherBad("Snow")) {
+            String longText = "Warning: Bad weather in your selected area!";
+            Intent intent = new Intent(this, WeatherActivity.class);
+            PendingIntent pIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
+            Notification n = new Notification.Builder(this)
+                    .setContentTitle("BAD WEATHER WARNING!!")
+                    .setContentText("Subject")
+                    .setSmallIcon(R.drawable.icon)
+                    .setContentIntent(pIntent)
+                    .setAutoCancel(true)
+                    .setStyle(new Notification.BigTextStyle().bigText(longText))
+                    .addAction(R.drawable.icon, "More", pIntent).build();
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.notify(0, n);
+        }
     }
 }

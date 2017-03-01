@@ -1,7 +1,5 @@
 package com.example.dfreeman.weatherapplicationtdd;
 
-import android.widget.Button;
-
 import com.example.dfreeman.weatherapplicationtdd.View.WeatherActivity;
 
 import junit.framework.Assert;
@@ -18,12 +16,10 @@ import org.robolectric.annotation.Config;
 public class WeatherActivityUnitTest {
 
     private WeatherActivity weatherActivity;
-    private Button changeLocatinButton;
 
     @Before
     public void setUp() {
         weatherActivity = Robolectric.buildActivity(WeatherActivity.class).create().get();
-        changeLocatinButton = (Button) weatherActivity.findViewById(R.id.enterLocationGoButton);
     }
 
     @Test

@@ -29,9 +29,6 @@ public class PreferenceHelper {
     }
 
     public boolean isValid(String location) {
-        if(location == null) {
-            return false;
-        }
-        return location.length() == 5;
+        return location!=null && location.length() == 5;
     }
 }

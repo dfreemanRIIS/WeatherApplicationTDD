@@ -8,21 +8,18 @@ import java.net.URL;
 
 public class ApiHelper {
 
-    private static String BASE_URL = "http://api.openweathermap.org/data/2.5/weather?zip=";
-    private static String BASE_FORECAST_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?zip=";
-
     public String getWeeklyWeatherData(String location) {
         HttpURLConnection con = null ;
         InputStream is = null;
 
         try {
-            con = (HttpURLConnection) ( new URL(BASE_FORECAST_URL + location + "&appid=1e1f024d50cf8f015e380c54a306997b")).openConnection();
+            con = (HttpURLConnection) ( new URL("http://api.openweathermap.org/data/2.5/forecast/daily?zip=" + location + "&appid=1e1f024d50cf8f015e380c54a306997b")).openConnection();
             con.setRequestMethod("GET");
             con.setDoInput(true);
             con.setDoOutput(true);
             con.connect();
 
-            StringBuffer buffer = new StringBuffer();
+            StringBuilder buffer = new StringBuilder();
             is = con.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             String line = null;
@@ -49,13 +46,13 @@ public class ApiHelper {
         InputStream is = null;
 
         try {
-            con = (HttpURLConnection) ( new URL(BASE_URL + location + "&appid=1e1f024d50cf8f015e380c54a306997b")).openConnection();
+            con = (HttpURLConnection) ( new URL("http://api.openweathermap.org/data/2.5/weather?zip=" + location + "&appid=1e1f024d50cf8f015e380c54a306997b")).openConnection();
             con.setRequestMethod("GET");
             con.setDoInput(true);
             con.setDoOutput(true);
             con.connect();
 
-            StringBuffer buffer = new StringBuffer();
+            StringBuilder buffer = new StringBuilder();
             is = con.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             String line = null;
@@ -75,7 +72,5 @@ public class ApiHelper {
         }
 
         return null;
-
     }
-
 }

@@ -14,7 +14,7 @@ import com.example.dfreeman.weatherapplicationtdd.R;
 public class LocationActivity extends AppCompatActivity {
 
     public Controller controller;
-    public Context context;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
