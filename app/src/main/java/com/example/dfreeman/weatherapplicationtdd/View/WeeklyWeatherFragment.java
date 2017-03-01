@@ -90,11 +90,7 @@ public class WeeklyWeatherFragment extends Fragment {
         protected void onPostExecute(Weather[] weather) {
             super.onPostExecute(weather);
 
-            if (weather[0].iconData != null && weather[0].iconData.length > 0) {
-                Bitmap img = BitmapFactory.decodeByteArray(weather[0].iconData, 0, weather[0].iconData.length);
-            }
-
-            cityTextWeekly.setText(weather[0].location.getCity() + "," + weather[0].location.getCountry());
+            cityTextWeekly.setText(controller.getCachedLocation());
             cityTextFirstDay.setText("Today");
             condDescrFirstDay.setText(weather[0].currentCondition.getCondition() + "(" + weather[0].currentCondition.getDescr() + ")");
             tempFirstDay.setText("" + Math.round((weather[0].temperature.getTemp() - 273.15)) + "�C");
